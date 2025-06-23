@@ -357,7 +357,7 @@ function wp_mail( $to, $subject, $message, $headers = '', $attachments = array()
         'to' => $body['To'],
         'subject' => $body['Subject'],
         'message' => $body['HtmlBody'] ?? $body['TextBody'],
-        'headers' => $recognized_headers,
+        'headers' => array_merge( $custom_headers, $recognized_headers ),
         'attachments' => $body['Attachments'] ?? null,
     ));
 
